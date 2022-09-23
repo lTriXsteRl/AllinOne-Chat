@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Input from "./components/Input";
+
 function App() {
+  
+
   return (
-    <div>
-      <h1>HelloWorld!!!</h1>
+    <div className="App">
+      <Input field={{name: "Костя"}}/>
+      <Input field={{name: "Влад"}}/>
     </div>
   );
 }
