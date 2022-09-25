@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    display: flex;
+    justify-content: center;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 800px;
+    height: 600px;
+}
+
+.user_field{
+    display: flex;
+    flex-direction: row;
+}
+
+.input_field{
+    display: flex;
+    padding: 15px;
+    border: 2px solid teal;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat__history{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.chat__item{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid teal;
+    margin: 5px;
+}
