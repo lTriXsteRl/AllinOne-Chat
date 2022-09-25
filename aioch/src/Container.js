@@ -1,8 +1,8 @@
 class Container{
     constructor(){
         this.posts = [
-            {user: 'Kostya', body: 'first message'},
-            {user: 'Vlad', body: 'second message'}
+            {id: 1, user: 'Kostya', body: 'first message'},
+            {id: 2, user: 'Vlad', body: 'second message'}
         ];
     }
 

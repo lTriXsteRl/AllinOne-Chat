@@ -10,11 +10,15 @@ let container = new Container();
 function App() {
   const[posts, setPosts] = useState(container.getPosts());
 
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost])
+  }
+
   return (
     <div className="App">
         <div className="user_field">
-          <ChatUser field={{name: "Костя", container: container, setPost: setPosts}}/>
-          <ChatUser field={{name: "Влад", container: container}}/>
+          <ChatUser field={{name: "Костя"}} container={{container: container}} create={createPost}/>
+          <ChatUser field={{name: "Влад"}} container={{container: container}} create={createPost}/>
         </div>
         <ChatHistory posts={posts}/>
     </div>
