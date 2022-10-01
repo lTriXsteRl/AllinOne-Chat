@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Ain1chat",
+            "database": "C:\\Projects\\AllinOne-Chat\\python-back\\Ain1chat.sqlite3"
+        }
+    ]
+}
