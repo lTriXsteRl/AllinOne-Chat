@@ -50,10 +50,60 @@ def auth(login, password):
         res = list(res)
         if res[2]==None: res[2]=login
         if res[3]==None: res[3]=''
-        
+
         print(r'{"return":0, "text":"Login successfull.", "id":%d, "nickname":"%s", "img":"%s"}'%(res[0],res[2],res[3]))
+    cursor.close()
+
+
+
+def listChats(idUser):
+    global db
+    cursor = db.cursor()
+    #check user exist
+    res = cursor.execute("""select id_chat from contacts where id_user='%d'"""%(idUser))
+    res = res.fetchall()
+    for x in range(len(res)):
+        res[x] = res[x][0]
+    
+    print(r'{"return":0, "text":"Return list chats id", "id chats":%s}'%(str(res)))
+
+    cursor.close()
+
+
+#добавить проверку что юзеры существуют
+def createChat(listIdUsers, name, img=''):
+    global db
+    cursor = db.cursor()
+    #create chat
+    res = cursor.execute("""insert into chats(name,img) values('%s', '%s')"""%(name,img))
+    db.commit()
+    res = cursor.execute("""select id from chats where name='%s'"""%(name))
+    res = res.fetchall()
+    #failed create chat
+    if len(res)==0:
+        print(r'{"return":1, "text":"Error! Failed create chat!"}')
+    #successfull create chat
+    else:
+        id = res[-1][0]
+        #add users in chat
+        for userId in listIdUsers:
+            res = cursor.execute("""insert into contacts(id_user,id_chat) values(%d, %d)"""%(userId,id))
+        db.commit()
+        #check correcting add users
+        res = cursor.execute("""select id_user from contacts where id_chat=%d"""%(id))
+        res = res.fetchall()
+        #add users successfull
+        if len(res)==len(listIdUsers):
+            print(r'{"return":0, "text":"Successfull create chat.", "id chat":%d, "id users":%s}'%(id,str(listIdUsers)))
+        #failed add users
+        else:
+            print(r'{"return":2, "text":"Error! Failed add users to chat"}')
+    cursor.close()
 
 # registration('admin@admin.com','admin','admin')
-auth('admin', 'admin')
+# auth('admin', 'admin')
+# createChat([1,6], "chatik", img='')
+listChats(6)
+
 
 db.close()
