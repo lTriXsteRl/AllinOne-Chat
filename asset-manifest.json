@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/AllinOne-Chat/static/js/main.c11cfb3e.js",
+    "main.css": "/AllinOne-Chat/static/css/main.c4044df2.css",
+    "main.js": "/AllinOne-Chat/static/js/main.241a5e1f.js",
     "index.html": "/AllinOne-Chat/index.html",
-    "main.c11cfb3e.js.map": "/AllinOne-Chat/static/js/main.c11cfb3e.js.map"
+    "main.c4044df2.css.map": "/AllinOne-Chat/static/css/main.c4044df2.css.map",
+    "main.241a5e1f.js.map": "/AllinOne-Chat/static/js/main.241a5e1f.js.map"
   },
   "entrypoints": [
-    "static/js/main.c11cfb3e.js"
+    "static/css/main.c4044df2.css",
+    "static/js/main.241a5e1f.js"
   ]
 }
